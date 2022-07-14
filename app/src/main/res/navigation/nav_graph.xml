@@ -18,5 +18,12 @@
         android:id="@+id/frag2"
         android:name="de.syntax_institut.telefonbuch.frag2"
         android:label="fragment_frag2"
-        tools:layout="@layout/fragment_frag2" />
+        tools:layout="@layout/fragment_frag2" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="nummer"
+            app:argType="string" />
+    </fragment>
 </navigation>

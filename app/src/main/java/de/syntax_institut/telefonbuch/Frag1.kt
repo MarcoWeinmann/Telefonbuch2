@@ -15,24 +15,16 @@ import de.syntax_institut.telefonbuch.databinding.FragmentFrag1Binding
 class Frag1 : Fragment() {
     private lateinit var binding: FragmentFrag1Binding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFrag1Binding.inflate(layoutInflater)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_frag1, container, false)
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag1, container, false)
+        return binding.root
     }
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-            super.onViewCreated(view, savedInstanceState)
 
-
-            val binding: ActivityMainBinding =
-                DataBindingUtil.setContentView(this, R.layout.activity_main)
 
             // hole die Liste mit den Kontakten
             val contacts = Datasource().loadContacts()

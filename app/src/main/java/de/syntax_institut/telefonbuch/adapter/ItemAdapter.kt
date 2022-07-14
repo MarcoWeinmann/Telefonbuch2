@@ -4,7 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
+import de.syntax_institut.telefonbuch.Frag1
+import de.syntax_institut.telefonbuch.Frag1Directions
 import de.syntax_institut.telefonbuch.R
 import de.syntax_institut.telefonbuch.data.model.Contact
 
@@ -21,6 +27,7 @@ class ItemAdapter(
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tvItemName)
         var tvNumber: TextView = itemView.findViewById(R.id.tvItemNumber)
+        var karte: MaterialCardView = itemView.findViewById(R.id.cardViewListItem)
     }
 
     /**
@@ -41,6 +48,9 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.tvName.text = dataset[position].name
         holder.tvNumber.text = dataset[position].number
+        holder.karte.setOnClickListener{
+            holder.itemView.findNavController().navigate(Frag1Directions.actionFrag1ToFrag2(dataset[position].name, dataset[position].number))
+        }
     }
 
     /**

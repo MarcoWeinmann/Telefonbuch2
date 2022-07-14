@@ -13,13 +13,10 @@ import de.syntax_institut.telefonbuch.databinding.ActivityMainBinding
  */
 class MainActivity : AppCompatActivity() {
 
-    /**
-     * Lifecycle Funktion onCreate
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        setContentView(R.layout.activity_main)
     }
 
 }
